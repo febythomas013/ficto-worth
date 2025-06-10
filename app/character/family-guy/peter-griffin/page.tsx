@@ -8,9 +8,10 @@ export default async function CharacterPage({ params }: Props) {
   const { data: character, error: characterError } = await supabase
     .from("characters")
     .select("*")
-    .eq("series", params.series)
-    .eq("name", params.name)
+    .eq("series", "family-guy")
+    .eq("name", "peter-griffin")
     .single();
+
 
   if (characterError || !character) {
     return <div className="text-white p-10">Character not found.</div>;
